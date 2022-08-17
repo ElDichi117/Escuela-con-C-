@@ -212,13 +212,13 @@ namespace CoreEscuela
                     {
                         for (int i = 0; i < 5; i++)
                         {
+                            //Esta una variable como si fuera una estructura JSON
                             var ev = new Evaluación
-                            {
+                            { 
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
-                                Nota = MathF.Round(
-                                    5 * (float)rnd.NextDouble()
-                                    , 2),
+                                //Este un ajuste para que la evaluación se imprima a dos cifras
+                                Nota = MathF.Round(5 * (float)rnd.NextDouble(), 2),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(ev);
