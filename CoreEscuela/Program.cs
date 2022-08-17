@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoreEscuela.App;
 using CoreEscuela.Entidades;
 using CoreEscuela.Util;
 using static System.Console;
@@ -10,7 +11,6 @@ namespace CoreEscuela
     {
         static void Main(string[] args)
         {
-            //Eventos
             //AppDomain -> Es donde se ejecuta cada una de las aplicaciones
             //CurrenteDomain -> Es donde esta ejecunatndo este programa
             AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
@@ -18,21 +18,9 @@ namespace CoreEscuela
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-            //Printer.Beep(10000, cantidad: 10);
-            //ImpimirCursosEscuela(engine.Escuela);
-            Dictionary<int, string> dicccionario = new Dictionary<int, string>();
 
-            dicccionario.Add(10, "JuanK");
-
-            dicccionario.Add(23, "Lorem Ipsum");
-
-            foreach (var keyValPair in dicccionario)
-            {
-                WriteLine($"Key: {keyValPair.Key} Valor: {keyValPair.Value}");
-            }
-
-            var dictmp = engine.GetDiccionarioObjetos();
-            engine.ImprimirDiccionario(dictmp,true);
+            var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
+            
         }
 
         private static void AccionDelEvento(object sender, EventArgs e)
