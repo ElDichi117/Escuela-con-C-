@@ -23,7 +23,7 @@ namespace CoreEscuela
             var evalist = reporteador.GetListaEvaluaciones();
             var listaAsg = reporteador.GetListaAsignaturas();
             var listaEvalXAsig = reporteador.GetDicEvaluaXAsig();
-
+            var listaPromXAsig = reporteador.GetPromeAlumnPorAsignatura();
         }
 
         private static void AccionDelEvento(object sender, EventArgs e)
